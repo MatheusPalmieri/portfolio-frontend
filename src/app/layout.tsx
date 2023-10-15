@@ -4,7 +4,7 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
   return (
     <html lang='pt-BR'>
       <head />
-      <body>
+      <body suppressHydrationWarning={true}>
         <RootStyleRegistry>{children}</RootStyleRegistry>
       </body>
     </html>
