@@ -29,9 +29,6 @@ export const Introduction = ({ data }: IntroductionProps) => (
       </Paper>
     </Flex>
 
-    {/* <Title order={1} fz='56px' color='white'>
-      {data.name}
-    </Title> */}
     <Glitch text={data.name} />
 
     <Title order={2} size='h3' fw='400'>
