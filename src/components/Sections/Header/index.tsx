@@ -10,6 +10,12 @@ import { Introduction } from './Introduction';
 export const Header = () => {
   const isMobile = useIsMobile();
 
+  const introduction = {
+    message: 'Seja bem-vindo ao meu Portfolio',
+    name: 'Matheus Palmieri',
+    career: ['Desenvolvedor Frontend', 'Desenvolvedor Backend', 'Desenvolvedor Full Stack'],
+  };
+
   return (
     <Flex w='100vw' h='100vh'>
       <BackgroundImage src={Background.src.toLowerCase()} radius='sm'>
@@ -20,7 +26,7 @@ export const Header = () => {
             style: { overflow: 'hidden' },
           }}
         >
-          <Introduction />
+          <Introduction data={introduction} />
 
           {!isMobile && <Astronaut />}
         </ContainerFluid>

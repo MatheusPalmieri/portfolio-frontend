@@ -3,7 +3,15 @@ import { Flex, Paper, Text, Title } from '@mantine/core';
 import { Typing } from '@/components/Typing';
 import { BlinkingText } from '@/components/Typing/BlinkingText';
 
-export const Introduction = () => (
+interface IntroductionProps {
+  data: {
+    message: string;
+    name: string;
+    career: string[];
+  };
+}
+
+export const Introduction = ({ data }: IntroductionProps) => (
   <Flex w='50%' h='100%' direction='column' justify='center'>
     <Flex>
       <Paper
@@ -16,19 +24,16 @@ export const Introduction = () => (
         radius='sm'
         p='xs'
       >
-        <Text fw='bold'>Seja bem-vindo ao meu Portfolio</Text>
+        <Text fw='bold'>{data.message}</Text>
       </Paper>
     </Flex>
 
     <Title order={1} fz='56px' color='white'>
-      Matheus Palmieri
+      {data.name}
     </Title>
 
     <Title order={2} size='h3' fw='400'>
-      <Typing
-        career={['Desenvolvedor Frontend', 'Desenvolvedor Backend', 'Desenvolvedor Full Stack']}
-        time={200}
-      />
+      <Typing career={data.career} time={200} />
 
       <BlinkingText margin={2} />
     </Title>
