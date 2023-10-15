@@ -17,7 +17,7 @@ export const Header = () => {
   };
 
   return (
-    <Flex w='100vw' h='100vh'>
+    <Flex w='100dvw' h='100dvh'>
       <BackgroundImage src={Background.src.toLowerCase()} radius='sm'>
         <ContainerFluid
           props={{
