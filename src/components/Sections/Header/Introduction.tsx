@@ -1,5 +1,6 @@
 import { Flex, Paper, Text, Title } from '@mantine/core';
 
+import { Glitch } from '@/components/Title/Glitch';
 import { Typing } from '@/components/Typing';
 import { BlinkingText } from '@/components/Typing/BlinkingText';
 
@@ -28,12 +29,13 @@ export const Introduction = ({ data }: IntroductionProps) => (
       </Paper>
     </Flex>
 
-    <Title order={1} fz='56px' color='white'>
+    {/* <Title order={1} fz='56px' color='white'>
       {data.name}
-    </Title>
+    </Title> */}
+    <Glitch text={data.name} />
 
     <Title order={2} size='h3' fw='400'>
-      <Typing career={data.career} time={200} />
+      <Typing career={data.career} time={100} />
 
       <BlinkingText margin={2} />
     </Title>
