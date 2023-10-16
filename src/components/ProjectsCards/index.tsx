@@ -9,7 +9,7 @@ interface ProjectsCardsProps {
 
 export const ProjectsCards = ({ projects }: ProjectsCardsProps) => {
   return (
-    <Group spacing='md' align='start'>
+    <Group spacing='md' align='start' style={{ justifyContent: 'center' }}>
       {projects.map((project: IProject) => (
         <ProjectCard key={project.id} project={project} />
       ))}
