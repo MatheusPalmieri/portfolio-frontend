@@ -1,8 +1,5 @@
-'use client';
 import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
-
-import { Footer } from '@/components/Sections/Footer';
 
 import RootStyleRegistry from './emotion';
 
@@ -21,7 +18,6 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
       <body suppressHydrationWarning={true}>
         <RootStyleRegistry>{children}</RootStyleRegistry>
         <Analytics />
-        <Footer />
       </body>
     </html>
   );
