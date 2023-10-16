@@ -1,7 +1,8 @@
 'use client';
+
 import { Header } from '@/components/Sections/Header';
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
       <Header />
