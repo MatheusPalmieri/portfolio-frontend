@@ -2,7 +2,7 @@ import { useIsMobile } from '@/helpers/isMobile';
 import { BackgroundImage, Flex } from '@mantine/core';
 import Background from 'public/images/background.png';
 
-import { ContainerFluid } from '@/components/Containers/ContainerFluid';
+import { ContainerFluid } from '@/components/Container/ContainerFluid';
 
 import { Astronaut } from './Astronaut';
 import { Introduction } from './Introduction';

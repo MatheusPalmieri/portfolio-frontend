@@ -4,7 +4,7 @@ import { IProject } from '@/interfaces/project';
 import getProjects from '@/services/project';
 import { IconSourceCode } from '@tabler/icons-react';
 
-import { ContainerFluid } from '@/components/Containers/ContainerFluid';
+import { ContainerFluid } from '@/components/Container/ContainerFluid';
 import { ProjectsCards } from '@/components/ProjectsCards';
 import { TitleAndSubTitle } from '@/components/Title/TitleAndSubTitle';
 
