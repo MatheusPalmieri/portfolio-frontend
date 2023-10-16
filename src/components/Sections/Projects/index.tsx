@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { IProject } from '@/interfaces/project';
 import getProjects from '@/services/project';
+import { IconSourceCode } from '@tabler/icons-react';
 
 import { ContainerFluid } from '@/components/Containers/ContainerFluid';
 import { ProjectsCards } from '@/components/ProjectsCards';
@@ -28,7 +29,7 @@ export const Projects = () => {
         direction: 'column',
       }}
     >
-      <TitleAndSubTitle subTitle='Projects' align='center'>
+      <TitleAndSubTitle subTitle='Projects' IconTitle={IconSourceCode} align='center'>
         Projetos
       </TitleAndSubTitle>
 
