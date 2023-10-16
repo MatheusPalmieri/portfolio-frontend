@@ -17,13 +17,13 @@ export const Header = () => {
   };
 
   return (
-    <Flex w='100dvw' h='100dvh'>
+    <Flex w='100%' h='100dvh'>
       <BackgroundImage src={Background.src.toLowerCase()} radius='sm'>
         <ContainerFluid
           props={{
             h: '100%',
             justify: 'space-between',
-            style: { overflow: 'hidden' },
+            style: { flexDirection: 'row', overflow: 'hidden' },
           }}
         >
           <Introduction data={introduction} />
