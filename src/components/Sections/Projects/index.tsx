@@ -6,7 +6,7 @@ import { IconSourceCode } from '@tabler/icons-react';
 
 import { ContainerFluid } from '@/components/Container/ContainerFluid';
 import { ProjectsCards } from '@/components/ProjectsCards';
-import { TitleAndSubTitle } from '@/components/Title/TitleAndSubTitle';
+import { TitleAndSubtitle } from '@/components/Title/TitleAndSubTitle';
 
 export const Projects = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
@@ -29,9 +29,9 @@ export const Projects = () => {
         direction: 'column',
       }}
     >
-      <TitleAndSubTitle subTitle='Projects' IconTitle={IconSourceCode} align='center'>
+      <TitleAndSubtitle subTitle='Projects' Icon={IconSourceCode} align='center'>
         Projetos
-      </TitleAndSubTitle>
+      </TitleAndSubtitle>
 
       <ProjectsCards projects={projects} />
     </ContainerFluid>

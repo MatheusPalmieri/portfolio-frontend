@@ -3,12 +3,12 @@ import { Icon } from '@tabler/icons-react';
 
 interface TitleProps {
   children: string;
-  subTitle?: string;
-  IconTitle?: Icon;
+  subTitle: string;
+  Icon: Icon;
   align?: 'left' | 'center' | 'right';
 }
 
-export const TitleAndSubTitle = ({ children, subTitle, IconTitle, align = 'left' }: TitleProps) => {
+export const TitleAndSubtitle = ({ children, subTitle, Icon, align = 'left' }: TitleProps) => {
   return (
     <Flex w='100%' direction='column' align={align} pos='relative' mt='md' py='lg'>
       <Flex pos='relative' style={{ zIndex: 1 }}>
@@ -18,7 +18,7 @@ export const TitleAndSubTitle = ({ children, subTitle, IconTitle, align = 'left'
       </Flex>
 
       <Flex pos='absolute' top='-16px' style={{ zIndex: 0 }} align='center'>
-        {IconTitle && <IconTitle size={64} opacity='0.2' />}
+        {Icon && <Icon size={64} opacity='0.2' />}
         <Title order={3} fz='64px' opacity='0.2' lh='0' mb='6px'>
           {subTitle ?? children.toString()}
         </Title>
