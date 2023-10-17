@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 
 import RootStyleRegistry from './emotion';
 
+import '@/global/style.css';
+
 export const metadata: Metadata = {
   title: 'Portfolio',
   description:
