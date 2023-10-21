@@ -13,6 +13,7 @@ import {
   IconCode,
 } from '@tabler/icons-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { AffixButton } from '@/components/Affix';
 import { ContainerFluid } from '@/components/Container/ContainerFluid';
@@ -21,6 +22,7 @@ import { TitleAndSubtitle } from '@/components/Title/TitleAndSubTitle';
 
 export default function Page({ params }: { params: { slug: string } }) {
   const isMobile = useIsMobile();
+  const router = useRouter();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [project, setProject] = useState<IProject | null>(null);
@@ -32,13 +34,14 @@ export default function Page({ params }: { params: { slug: string } }) {
         setProject(response.data as IProject);
       } catch (error) {
         console.error(error);
+        router.push('/404');
       } finally {
         setLoading(false);
       }
     };
 
     getProject();
-  }, [params.slug]);
+  }, [params.slug, router]);
 
   if (loading) return <>carregando</>;
 
