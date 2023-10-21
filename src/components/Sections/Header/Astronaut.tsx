@@ -21,7 +21,18 @@ export const Astronaut = () => {
   }, []);
 
   return (
-    <Flex w='50%' h='100%' align='center'>
+    <Flex
+      w={{ base: '100%', md: '50%' }}
+      h='100%'
+      align='center'
+      pos={{ base: 'absolute', md: 'inherit' }}
+      style={{
+        zIndex: -1,
+        overflow: 'hidden',
+        top: 100,
+        right: 0,
+      }}
+    >
       <Transition
         mounted={opened}
         transition={translateY}
@@ -57,6 +68,7 @@ export const Astronaut = () => {
             <Image
               src={AstronautImage.src.toLowerCase()}
               miw='400px'
+              maw='600px'
               w='auto'
               fit='contain'
               style={{ ...transitionStyle, zIndex: 1 }}

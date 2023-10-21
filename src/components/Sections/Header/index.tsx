@@ -1,4 +1,3 @@
-import { useIsMobile } from '@/helpers/isMobile';
 import { BackgroundImage, Flex } from '@mantine/core';
 import Background from 'public/images/background.png';
 
@@ -8,8 +7,6 @@ import { Astronaut } from './Astronaut';
 import { Introduction } from './Introduction';
 
 export const Header = () => {
-  const isMobile = useIsMobile();
-
   const introduction = {
     message: 'Seja bem-vindo ao meu Portfolio',
     name: 'Matheus Palmieri',
@@ -18,7 +15,7 @@ export const Header = () => {
 
   return (
     <Flex w='100%' h='100dvh'>
-      <BackgroundImage src={Background.src.toLowerCase()} radius='sm'>
+      <BackgroundImage src={Background.src.toLowerCase()} radius='sm' style={{ zIndex: -2 }}>
         <ContainerFluid
           props={{
             h: '100%',
@@ -28,7 +25,7 @@ export const Header = () => {
         >
           <Introduction data={introduction} />
 
-          {!isMobile && <Astronaut />}
+          <Astronaut />
         </ContainerFluid>
       </BackgroundImage>
     </Flex>

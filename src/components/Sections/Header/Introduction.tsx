@@ -13,9 +13,15 @@ interface IntroductionProps {
 }
 
 export const Introduction = ({ data }: IntroductionProps) => (
-  <Flex w='50%' h='100%' direction='column' justify='center'>
+  <Flex
+    w={{ base: '100%', md: '50%' }}
+    h={{ base: '50%', md: '100%' }}
+    direction='column'
+    justify={{ base: 'flex-start', md: 'center' }}
+  >
     <Flex>
       <Paper
+        w='fit-content'
         bg={`linear-gradient(
                   90.21deg,
                   rgba(170, 54, 124, 0.5) -5.91%,
