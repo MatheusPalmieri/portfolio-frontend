@@ -19,7 +19,13 @@ export const TitleAndSubtitle = ({ children, subTitle, Icon, align = 'left' }: T
 
       <Flex pos='absolute' top='-16px' style={{ zIndex: 0 }} align='center'>
         {Icon && <Icon size={64} opacity='0.2' />}
-        <Title order={3} fz='64px' opacity='0.2' lh='0' mb='6px'>
+        <Title
+          order={3}
+          fz={{ base: '44px', sm: '54px', md: '64px' }}
+          opacity='0.2'
+          lh='0'
+          mb='6px'
+        >
           {subTitle ?? children.toString()}
         </Title>
       </Flex>

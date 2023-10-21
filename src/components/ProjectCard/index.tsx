@@ -3,22 +3,34 @@ import { useState } from 'react';
 import { IProject } from '@/interfaces/project';
 import { Card, Image, Text, Group, Badge, Button, ActionIcon, Flex } from '@mantine/core';
 import { IconHeart, IconHeartFilled } from '@tabler/icons-react';
+import { useRouter } from 'next/navigation';
 
 interface ProjectCardProps {
   project: IProject;
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
+  const router = useRouter();
+
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
-  const features = project.technology.map((technologyItem, idx) => (
+  const features = project.technologies.map((technology, idx) => (
     <Badge variant='light' color='gray' key={idx}>
-      {technologyItem}
+      {technology}
     </Badge>
   ));
 
   return (
-    <Card radius='md' p='0' px='md' shadow='lg' w='300px' maw='300px'>
+    <Card
+      radius='md'
+      p='0'
+      px='md'
+      shadow='lg'
+      w='300px'
+      maw='300px'
+      style={{ cursor: 'pointer' }}
+      onClick={() => router.push(`/${project.slug}`, { scroll: false })}
+    >
       <Card.Section>
         <Image src={project.preview} alt={project.name} height={180} />
       </Card.Section>
