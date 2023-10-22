@@ -34,7 +34,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         setProject(response.data as IProject);
       } catch (error) {
         console.error(error);
-        router.push('/404');
+        router.push('/pagina-nao-encontrada');
       } finally {
         setLoading(false);
       }

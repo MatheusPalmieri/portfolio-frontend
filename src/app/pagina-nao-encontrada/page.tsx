@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Illustration } from './Illustration';
 
-export default function NothingFoundBackground() {
+export default function Page() {
   return (
     <Flex h='100dvh' align='center'>
       <Container p={{ base: 'lg', md: '0' }} py={rem('80px')}>
