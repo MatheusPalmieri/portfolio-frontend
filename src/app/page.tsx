@@ -12,7 +12,7 @@ export default function Page() {
     <main>
       <Header />
       <AffixButton />
-      <Flex direction='column' gap={{ base: '40px', md: '70px' }}>
+      <Flex direction='column' gap={{ base: '40px', md: '70px' }} mt={{ base: '40px', md: '70px' }}>
         <Projects />
         <Skills />
       </Flex>

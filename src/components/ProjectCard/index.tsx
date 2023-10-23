@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { IProject } from '@/interfaces/project';
 import { Card, Image, Text, Group, Badge, Button, ActionIcon, Flex } from '@mantine/core';
+import { useHover } from '@mantine/hooks';
 import { IconHeart, IconHeartFilled } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 
@@ -11,6 +12,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const router = useRouter();
+  const { hovered, ref } = useHover();
 
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
@@ -28,7 +30,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       shadow='lg'
       w='300px'
       maw='300px'
-      style={{ cursor: 'pointer' }}
+      style={{
+        cursor: 'pointer',
+        transform: hovered ? 'scale(1.005)' : 'scale(1.0)',
+        transition: 'transform .3s',
+      }}
+      ref={ref}
       onClick={() => router.push(`/${project.slug}`, { scroll: false })}
     >
       <Card.Section>
