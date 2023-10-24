@@ -40,7 +40,6 @@ export const DialogCookies = () => {
       bg='violet'
     >
       <Title fz='xl'>Esse site usa cookies.</Title>
-      {/* <IconCookie size='1.7em' /> */}
 
       <Text ta='justify' my='xs'>
         Este site utiliza cookies para melhorar sua experiência de navegação. Ao continuar, você
