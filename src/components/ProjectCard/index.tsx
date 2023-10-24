@@ -61,14 +61,17 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
         <Card.Section>
           <Group mt='xs'>
-            <Button radius='md' style={{ flex: 1 }}>
-              Show details
+            <Button variant='light' color='violet' radius='md' style={{ flex: 1 }}>
+              Ver detalhes
             </Button>
             <ActionIcon
               variant='default'
               radius='md'
               size={36}
-              onClick={() => setIsFavorite((isFavCurrent) => !isFavCurrent)}
+              onClick={(event) => {
+                setIsFavorite((isFavCurrent) => !isFavCurrent);
+                event.stopPropagation();
+              }}
             >
               {isFavorite ? <IconHeartFilled stroke={1.5} /> : <IconHeart stroke={1.5} />}
             </ActionIcon>

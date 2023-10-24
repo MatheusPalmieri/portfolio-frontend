@@ -9,6 +9,7 @@ import { ProjectsCards } from '@/components/ProjectsCards';
 import { TitleAndSubtitle } from '@/components/Title/TitleAndSubTitle';
 
 export const Projects = () => {
+  const [loading, setLoading] = useState<boolean>(true);
   const [projects, setProjects] = useState<IProject[]>([]);
 
   useEffect(() => {
@@ -18,6 +19,8 @@ export const Projects = () => {
         setProjects(response.data as IProject[]);
       } catch (error) {
         console.error('Error on get projects', error);
+      } finally {
+        setLoading(false);
       }
     };
     handleGetProjects();
@@ -33,7 +36,7 @@ export const Projects = () => {
         Projetos
       </TitleAndSubtitle>
 
-      <ProjectsCards projects={projects} />
+      <ProjectsCards projects={projects} loading={loading} />
     </ContainerFluid>
   );
 };
