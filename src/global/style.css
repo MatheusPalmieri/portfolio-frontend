@@ -13,3 +13,15 @@
   );
   border-radius: 2px;
 }
+
+/* Progress Bar */
+
+#nprogress {
+  position: relative;
+  z-index: 999999;
+}
+
+#nprogress .bar {
+  background: #6741d9 !important;
+  height: 3px;
+}

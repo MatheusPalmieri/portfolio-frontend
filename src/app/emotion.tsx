@@ -2,6 +2,9 @@
 import { CacheProvider } from '@emotion/react';
 import { useEmotionCache, MantineProvider } from '@mantine/core';
 import { useServerInsertedHTML } from 'next/navigation';
+import { Router } from 'next/router';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 export default function RootStyleRegistry({ children }: { children: JSX.Element }) {
   const cache = useEmotionCache();
@@ -15,6 +18,16 @@ export default function RootStyleRegistry({ children }: { children: JSX.Element 
       }}
     />
   ));
+
+  Router.events.on('routeChangeStart', () => {
+    NProgress.start();
+  });
+  Router.events.on('routeChangeComplete', () => {
+    NProgress.done();
+  });
+  Router.events.on('routeChangeError', () => {
+    NProgress.done();
+  });
 
   return (
     <CacheProvider value={cache}>

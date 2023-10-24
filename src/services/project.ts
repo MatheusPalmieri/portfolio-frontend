@@ -169,6 +169,6 @@ export async function getProjectBySlug(slug: string): Promise<{ data: IProject; 
         data: project,
         status: 200,
       });
-    }, 0);
+    }, 50);
   });
 }
