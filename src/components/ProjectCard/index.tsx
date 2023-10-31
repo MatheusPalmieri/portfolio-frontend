@@ -36,7 +36,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         transition: 'transform .3s',
       }}
       ref={ref}
-      onClick={() => router.push(`/${project.slug}`, { scroll: false })}
+      onClick={() => router.push(`/${project.slug}`)}
     >
       <Card.Section>
         <Image src={project.preview} alt={project.name} height={180} />
