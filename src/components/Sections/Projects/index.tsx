@@ -31,9 +31,11 @@ export const Projects = () => {
         direction: 'column',
       }}
     >
-      <TitleAndSubtitle subTitle='Projects' Icon={IconSourceCode} align='center'>
-        Projetos
-      </TitleAndSubtitle>
+      {projects.length > 0 && (
+        <TitleAndSubtitle subTitle='Projects' Icon={IconSourceCode} align='center'>
+          Projetos
+        </TitleAndSubtitle>
+      )}
 
       <ProjectsCards projects={projects} loading={loading} />
     </ContainerFluid>
