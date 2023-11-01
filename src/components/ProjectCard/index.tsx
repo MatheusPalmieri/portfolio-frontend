@@ -11,7 +11,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { name, description, slug, resources, technologies } = project;
+  const { name, about, slug, resources, technologies } = project;
 
   const router = useRouter();
   const { hovered, ref } = useHover();
@@ -57,7 +57,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           </Text>
 
           <Text fz='sm' mt='xs'>
-            {description}
+            {about ?? 'Sem detalhes'}
           </Text>
         </Card.Section>
 
