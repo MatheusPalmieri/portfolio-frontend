@@ -15,8 +15,7 @@ export const Projects = () => {
   useEffect(() => {
     const handleGetProjects = async () => {
       try {
-        const response = await getProjects();
-        setProjects(response.data as IProject[]);
+        setProjects((await getProjects()) as IProject[]);
       } catch (error) {
         console.error('Error on get projects', error);
       } finally {

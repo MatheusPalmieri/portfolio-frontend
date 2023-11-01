@@ -1,22 +1,38 @@
-export enum ProjectTypeEnum {
+export enum ProjectStatusEnum {
+  ACTIVE = 'Active',
+  INACTIVE = 'Inactive',
+  DELETED = 'Deleted',
+}
+
+export enum ProjectCategoryEnum {
   FRONTEND = 'Frontend',
   BACKEND = 'Backend',
-  FULLSTACK = 'Fullstack',
+  FULLSTACK = 'Full Stack',
   MOBILE = 'Mobile',
-  DESKTOP = 'Desktop',
-  GAME = 'Game',
-  OTHER = 'Other',
+  OTHERS = 'Others',
 }
 
 export interface IProject {
-  id: string;
-  name: string;
-  description: string;
-  preview: string;
-  link: string;
-  technologies: string[];
+  _id: string;
   slug: string;
-  type: ProjectTypeEnum;
-  repository: string;
-  website?: string;
+  name: string;
+  about: string;
+  description: string;
+  resources: {
+    banner: string;
+    logo: string;
+    video?: string;
+  };
+  category: ProjectCategoryEnum;
+  technologies: string[];
+  links: {
+    repository: string;
+    website?: string;
+  };
+  isHighlighted: boolean;
+  status: ProjectStatusEnum;
+  // timestamps
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: string;
 }

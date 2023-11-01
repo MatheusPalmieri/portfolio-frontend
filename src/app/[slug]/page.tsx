@@ -30,8 +30,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   useEffect(() => {
     const getProject = async () => {
       try {
-        const response = await getProjectBySlug(params.slug as string);
-        setProject(response.data as IProject);
+        setProject((await getProjectBySlug(params.slug as string)) as IProject);
       } catch (error) {
         console.error(error);
         router.push('/pagina-nao-encontrada');
@@ -52,7 +51,10 @@ export default function Page({ params }: { params: { slug: string } }) {
       <AffixButton />
 
       <Flex h='200px' style={{ overflow: 'hidden' }} align='center'>
-        <Image src={project.preview} alt='Preview do projeto' />
+        <Image
+          src={project.resources.banner}
+          alt={`Banner referente ao projeto: ${project.name}`}
+        />
       </Flex>
 
       <ContainerFluid
@@ -77,12 +79,15 @@ export default function Page({ params }: { params: { slug: string } }) {
           <Flex align='flex-end' gap='md'>
             <Flex direction='column' align='flex-end'>
               <Title>{project.name}</Title>
-              <Text>{project.type}</Text>
+              <Text>{project.category}</Text>
             </Flex>
 
             {!isMobile && (
               <Box w='200px' h='200px' style={{ border: '2px solid #444' }} mt='-100px'>
-                <Image src={project.preview} alt='Preview do projeto' />
+                <Image
+                  src={project.resources.logo}
+                  alt={`Logo referente ao projeto: ${project.name}`}
+                />
               </Box>
             )}
           </Flex>
@@ -90,25 +95,25 @@ export default function Page({ params }: { params: { slug: string } }) {
 
         <Flex mt='50px' gap='md'>
           <Button
-            w={project.website ? '50%' : '100%'}
+            w={project.links.website ? '50%' : '100%'}
             color='violet'
             variant='light'
             leftIcon={<IconBrandGithubCopilot size={20} />}
             component={Link}
-            href={project.repository}
+            href={project.links.repository}
             target='_blank'
           >
             Repositório
           </Button>
 
-          {project.website && (
+          {project.links.website && (
             <Button
               w='50%'
               variant='light'
               color='violet'
               leftIcon={<IconAppWindow size={20} />}
               component={Link}
-              href={project.website}
+              href={project.links.website}
               target='_blank'
             >
               Visualizar site

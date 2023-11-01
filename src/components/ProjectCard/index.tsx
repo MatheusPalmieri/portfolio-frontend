@@ -11,12 +11,14 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
+  const { name, description, slug, resources, technologies } = project;
+
   const router = useRouter();
   const { hovered, ref } = useHover();
 
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
-  const features = project.technologies.map((technology, idx) => (
+  const features = technologies.map((technology, idx) => (
     <Badge variant='light' color='gray' key={idx}>
       {technology}
     </Badge>
@@ -36,10 +38,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         transition: 'transform .3s',
       }}
       ref={ref}
-      onClick={() => router.push(`/${project.slug}`)}
+      onClick={() => router.push(`/${slug}`)}
     >
       <Card.Section>
-        <Image src={project.preview} alt={project.name} height={180} />
+        <Image src={resources.banner} alt={`Banner referente ao projeto: ${name}`} height={180} />
       </Card.Section>
 
       <Flex direction='column' p='md'>
@@ -51,11 +53,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
         <Card.Section mt='md'>
           <Text fz='lg' fw={500}>
-            {project.name}
+            {name}
           </Text>
 
           <Text fz='sm' mt='xs'>
-            {project.description}
+            {description}
           </Text>
         </Card.Section>
 
