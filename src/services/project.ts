@@ -1,8 +1,9 @@
 import { IProject } from '@/interfaces/project';
 
-import api from './api';
+import { Projects } from './projects';
 
-export const getProjects = async (): Promise<IProject[]> => (await api.get('/project')).data;
+export const getProjects = async (): Promise<IProject[]> => Projects;
 
-export const getProjectBySlug = async (slug: string): Promise<IProject> =>
-  (await api.get(`/project/slug/${slug}`)).data;
+export const getProjectBySlug = async (slug: string): Promise<IProject> => {
+  return Projects.find((p: IProject) => p.slug === slug) as IProject;
+};
