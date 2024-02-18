@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { useIsMobile } from '@/helpers/isMobile';
 import { IProject } from '@/interfaces/project';
+import { Footer } from '@/sections/Footer';
 import { getProjectBySlug } from '@/services/project';
 import { Box, Button, Container, Flex, Image, Text, Title } from '@mantine/core';
 import {
@@ -17,7 +18,6 @@ import { useRouter } from 'next/navigation';
 
 import { AffixButton } from '@/components/Affix';
 import { ContainerFluid } from '@/components/Container/ContainerFluid';
-import { Footer } from '@/components/Sections/Footer';
 import { TitleAndSubtitle } from '@/components/Title/TitleAndSubTitle';
 
 export default function Page({ params }: { params: { slug: string } }) {
