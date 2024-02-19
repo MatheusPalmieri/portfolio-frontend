@@ -13,7 +13,7 @@ export enum ProjectCategoryEnum {
 }
 
 export interface IProject {
-  _id: string;
+  id: string;
   slug: string;
   name: string;
   about: string;
@@ -31,8 +31,4 @@ export interface IProject {
   };
   isHighlighted: boolean;
   status: ProjectStatusEnum;
-  // timestamps
-  createdAt: string;
-  updatedAt: string;
-  deletedAt?: string;
 }

@@ -3,8 +3,18 @@ import { useEffect, useState } from 'react';
 
 import { useIsMobile } from '@/helpers/isMobile';
 import { IProject } from '@/interfaces/project';
+import { Footer } from '@/sections/Footer';
 import { getProjectBySlug } from '@/services/project';
-import { Box, Button, Container, Flex, Image, Text, Title } from '@mantine/core';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Image,
+  Text,
+  Title,
+  TypographyStylesProvider,
+} from '@mantine/core';
 import {
   IconAlignBoxLeftMiddle,
   IconAppWindow,
@@ -17,7 +27,6 @@ import { useRouter } from 'next/navigation';
 
 import { AffixButton } from '@/components/Affix';
 import { ContainerFluid } from '@/components/Container/ContainerFluid';
-import { Footer } from '@/components/Sections/Footer';
 import { TitleAndSubtitle } from '@/components/Title/TitleAndSubTitle';
 
 export default function Page({ params }: { params: { slug: string } }) {
@@ -28,9 +37,12 @@ export default function Page({ params }: { params: { slug: string } }) {
   const [project, setProject] = useState<IProject | null>(null);
 
   useEffect(() => {
-    const getProject = async () => {
+    const getProject = () => {
       try {
-        setProject((await getProjectBySlug(params.slug as string)) as IProject);
+        const data = getProjectBySlug(params.slug as string) as IProject;
+        if (!data) router.push('/pagina-nao-encontrada');
+
+        setProject(data);
       } catch (error) {
         console.error(error);
         router.push('/pagina-nao-encontrada');
@@ -40,11 +52,11 @@ export default function Page({ params }: { params: { slug: string } }) {
     };
 
     getProject();
-  }, [params.slug, router]);
+  }, [params.slug, project, router]);
 
   if (loading) return <>carregando</>;
 
-  if (!project) return <>projeto não encontrado</>;
+  if (!project) return;
 
   return (
     <Flex w='100%' direction='column'>
@@ -138,7 +150,12 @@ export default function Page({ params }: { params: { slug: string } }) {
             Descrição
           </TitleAndSubtitle>
 
-          <Text>{project.description}</Text>
+          <TypographyStylesProvider>
+            <div
+              dangerouslySetInnerHTML={{ __html: project.description }}
+              style={{ textAlign: 'justify' }}
+            />
+          </TypographyStylesProvider>
         </Container>
       </ContainerFluid>
 
