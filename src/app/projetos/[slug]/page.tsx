@@ -5,7 +5,16 @@ import { useIsMobile } from '@/helpers/isMobile';
 import { IProject } from '@/interfaces/project';
 import { Footer } from '@/sections/Footer';
 import { getProjectBySlug } from '@/services/project';
-import { Box, Button, Container, Flex, Image, Text, Title } from '@mantine/core';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Image,
+  Text,
+  Title,
+  TypographyStylesProvider,
+} from '@mantine/core';
 import {
   IconAlignBoxLeftMiddle,
   IconAppWindow,
@@ -141,7 +150,12 @@ export default function Page({ params }: { params: { slug: string } }) {
             Descrição
           </TitleAndSubtitle>
 
-          <Text>{project.description}</Text>
+          <TypographyStylesProvider>
+            <div
+              dangerouslySetInnerHTML={{ __html: project.description }}
+              style={{ textAlign: 'justify' }}
+            />
+          </TypographyStylesProvider>
         </Container>
       </ContainerFluid>
 
