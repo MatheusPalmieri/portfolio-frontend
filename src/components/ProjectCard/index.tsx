@@ -38,7 +38,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         transition: 'transform .3s',
       }}
       ref={ref}
-      onClick={() => router.push(`/${slug}`)}
+      onClick={() => router.push(`projetos/${slug}`)}
     >
       <Card.Section>
         <Image src={resources.banner} alt={`Banner referente ao projeto: ${name}`} height={180} />

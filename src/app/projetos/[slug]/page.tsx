@@ -28,9 +28,12 @@ export default function Page({ params }: { params: { slug: string } }) {
   const [project, setProject] = useState<IProject | null>(null);
 
   useEffect(() => {
-    const getProject = async () => {
+    const getProject = () => {
       try {
-        setProject((await getProjectBySlug(params.slug as string)) as IProject);
+        const data = getProjectBySlug(params.slug as string) as IProject;
+        if (!data) router.push('/pagina-nao-encontrada');
+
+        setProject(data);
       } catch (error) {
         console.error(error);
         router.push('/pagina-nao-encontrada');
@@ -40,11 +43,11 @@ export default function Page({ params }: { params: { slug: string } }) {
     };
 
     getProject();
-  }, [params.slug, router]);
+  }, [params.slug, project, router]);
 
   if (loading) return <>carregando</>;
 
-  if (!project) return <>projeto não encontrado</>;
+  if (!project) return;
 
   return (
     <Flex w='100%' direction='column'>
